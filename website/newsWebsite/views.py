@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from newsWebsite.models import Newsweb
+from django.shortcuts import render, HttpResponse
+from .models import Newsweb
 
 # Create your views here.
 
@@ -8,13 +8,18 @@ def index(request):
     news = Newsweb.objects.all()
 
     context = {
-        'news': news
+        'newsbest': news,
     }
     return render(request, ('newsWebsite/index.html', context))
 
 
 def business(request):
-    return render(request, ('newsWebsite/business.html'))
+    news = Newsweb.objects.all()
+
+    context = {
+        "news": news,
+    }
+    return render(request, ('newsWebsite/business.html', context))
 
 
 def health(request):

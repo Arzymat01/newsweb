@@ -24,3 +24,7 @@ class Newsweb(models.Model):
     businessnews = RichTextField()
     politikNews = RichTextField()
     healthNews = RichTextField()
+    newNews = RichTextField()
+
+    def __str__(self):
+        return self.temeHome
